@@ -142,4 +142,83 @@ public class WiseQuarterStepdefinitions {
         String actualUrlIcerik=Driver.getDriver().getTitle().toLowerCase();
         Assertions.assertTrue(actualUrlIcerik.contains(expectedIcerik));
     }
+
+    @Given("kullanici header'da bulunan sosyal medya ikonlarını görür")
+    public void kullanici_header_da_bulunan_sosyal_medya_ikonlarını_görür() {
+
+        Assertions.assertTrue(wiseQuarter.headerTwitterIkonu.isDisplayed());
+        Assertions.assertTrue(wiseQuarter.headerFacebookIkonu.isDisplayed());
+        Assertions.assertTrue(wiseQuarter.headerLinkedInIkonu.isDisplayed());
+        Assertions.assertTrue(wiseQuarter.headerInstagramIkonu.isDisplayed());
+        Assertions.assertTrue(wiseQuarter.headerYouTubeIkonu.isDisplayed());
+    }
+    @Given("kullanici header bölümündeki youtube ikonuna tiklar")
+    public void kullanici_header_bölümündeki_youtube_ikonuna_tiklar() {
+        wiseQuarter.headerYouTubeIkonu.click();
+    }
+    @Given("kullanici ilgili sayfanin youtube sayfasinda oldugunu görür")
+    public void kullanici_ilgili_sayfanin_youtube_sayfasinda_oldugunu_görür() {
+
+        String expectedIcerik= "wise quarter";
+        String actualUrlTitle=Driver.getDriver().getTitle().toLowerCase();
+        Assertions.assertTrue(actualUrlTitle.contains(expectedIcerik));
+    }
+
+    @Given("kullanici header bölümündeki instagram ikonuna tiklar")
+    public void kullanici_header_bölümündeki_instagram_ikonuna_tiklar() {
+
+       wiseQuarter.headerInstagramIkonu.click();
+
+    }
+    @Given("kullanici ilgili sayfanin instagram sayfasinda oldugunu görür")
+    public void kullanici_ilgili_sayfanin_instagram_sayfasinda_oldugunu_görür() {
+
+
+        String expectedIcerik= "wise quarter";
+        String actualUrlTitle=Driver.getDriver().getTitle().toLowerCase();
+        Assertions.assertTrue(actualUrlTitle.contains(expectedIcerik));
+    }
+
+    @Given("kullanici header bölümündeki linkedIn ikonuna tiklar")
+    public void kullanici_header_bölümündeki_linked_in_ikonuna_tiklar() {
+
+        wiseQuarter.headerLinkedInIkonu.click();
+    }
+    @Given("kullanici ilgili sayfanin linkedIn sayfasinda oldugunu görür")
+    public void kullanici_ilgili_sayfanin_linked_in_sayfasinda_oldugunu_görür() {
+
+        String expectedIcerik= "wise quarter";
+        String actualUrlTitle=Driver.getDriver().getTitle().toLowerCase();
+        Assertions.assertTrue(actualUrlTitle.contains(expectedIcerik));
+    }
+
+
+    @Given("kullanici header bölümündeki facebook ikonuna tiklar")
+    public void kullanici_header_bölümündeki_facebook_ikonuna_tiklar() {
+
+        wiseQuarter.headerFacebookIkonu.click();
+    }
+    @Given("kullanici ilgili sayfanin facebook sayfasinda oldugunu görür")
+    public void kullanici_ilgili_sayfanin_facebook_sayfasinda_oldugunu_görür() {
+
+        String expectedIcerik= "wise quarter";
+        String actualUrlTitle=Driver.getDriver().getTitle().toLowerCase();
+        Assertions.assertTrue(actualUrlTitle.contains(expectedIcerik));
+    }
+
+    @Given("kullanici header bölümündeki twitter ikonuna tiklar")
+    public void kullanici_header_bölümündeki_twitter_ikonuna_tiklar() {
+
+        wiseQuarter.headerTwitterIkonu.click();
+    }
+    @Given("kullanici ilgili sayfanin twitter sayfasinda oldugunu görür")
+    public void kullanici_ilgili_sayfanin_twitter_sayfasinda_oldugunu_görür() {
+
+        String expectedIcerik= "wisequarter";
+        String actualUrl=Driver.getDriver().getCurrentUrl().toLowerCase();
+        Assertions.assertTrue(actualUrl.contains(expectedIcerik));
+    }
+
+
+
 }

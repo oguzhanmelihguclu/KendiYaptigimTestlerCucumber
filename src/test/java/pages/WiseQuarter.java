@@ -46,6 +46,9 @@ public class WiseQuarter {
     @FindBy (xpath = "(//i[@class='fab fa-linkedin-in'])[1]")
     public  WebElement headerLinkedInIkonu;
 
+    @FindBy (xpath = "(//i[@class='fab fa-instagram'])[1]")
+    public WebElement headerInstagramIkonu;
+
     @FindBy (xpath = "(//i[@class='fab fa-youtube'])[1]")
     public WebElement headerYouTubeIkonu;
 
