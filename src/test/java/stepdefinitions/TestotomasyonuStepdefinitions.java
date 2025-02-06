@@ -357,15 +357,6 @@ public class TestotomasyonuStepdefinitions {
 
         testotomasyonuPage.uptadeButonu.click();
         ReusableMethods.bekle(7);
-        Driver.getDriver().navigate().refresh();
-
-        // Wait for the elements to be visible after update
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
-
-        // Wait for each element to be visible after the update
-        wait.until(ExpectedConditions.visibilityOf(testotomasyonuPage.firtNameButonu));
-        wait.until(ExpectedConditions.visibilityOf(testotomasyonuPage.lastNameButonu));
-        wait.until(ExpectedConditions.visibilityOf(testotomasyonuPage.mobilNumberButonu));
 
         // Expected values
         String expectedFirstName = "Wisee";
@@ -373,13 +364,46 @@ public class TestotomasyonuStepdefinitions {
         String expectedMobileNumber = "123456";
 
         // Actual values from the page
-        String actualFirstName = testotomasyonuPage.firtNameButonu.getText();
-        String actualLastName = testotomasyonuPage.lastNameButonu.getText();
-        String actualMobileNumber = testotomasyonuPage.mobilNumberButonu.getText();
+        String actualFirstName = testotomasyonuPage.firtNameButonu.getAttribute("value");
+        String actualLastName = testotomasyonuPage.lastNameButonu.getAttribute("value");
+        String actualMobileNumber = testotomasyonuPage.mobilNumberButonu.getAttribute("value");
 
         // Assertions
         Assertions.assertEquals(expectedFirstName, actualFirstName);
         Assertions.assertEquals(expectedLastName, actualLastName);
         Assertions.assertEquals(expectedMobileNumber, actualMobileNumber);
     }
+
+    @Given("kullanici change password butonuna basar")
+    public void kullanici_change_password_butonuna_basar() {
+   testotomasyonuPage.changePasswordButonu.click();
+    }
+    @Given("kullanıcı eski şifresini girer")
+    public void kullanıcı_eski_şifresini_girer() {
+        testotomasyonuPage.oldPasswordKutusu.sendKeys(ConfigReader.getProperty("toGecerliPassword"));
+
+    }
+    @Given("kullanici yeni sifresini girer")
+    public void kullanici_yeni_sifresini_girer() {
+     testotomasyonuPage.newPassswordKutusu.sendKeys(ConfigReader.getProperty("toYeniPassword"));
+    }
+    @Given("kullanici yeni sifresini confirm eder.")
+    public void kullanici_yeni_sifresini_confirm_eder() {
+       testotomasyonuPage.confirmPasswordKutusu.sendKeys(ConfigReader.getProperty("toYeniPassword"));
+    }
+    @Given("kullanici uptade butonuna basar.")
+    public void kullanici_uptade_butonuna_basar() {
+     testotomasyonuPage.uptadeButonu.click();
+    }
+
+    @Given("degistirdigi sifre ile basarili giris yapildigini test eder")
+    public void degistirdigi_sifre_ile_basarili_giris_yapildigini_test_eder() {
+
+  testotomasyonuPage.accountLinki.click();
+  testotomasyonuPage.emailKutusu.sendKeys(ConfigReader.getProperty("toGecerliEmail"));
+  testotomasyonuPage.passwordKutusu.sendKeys(ConfigReader.getProperty("toYeniPassword"));
+  testotomasyonuPage.loginButonu.click();
+  Assertions.assertTrue(testotomasyonuPage.logoutButonu.isDisplayed());
+    }
+
 }

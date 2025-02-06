@@ -94,6 +94,19 @@ public class TestotomasyonuPage {
     @FindBy (xpath = "//*[@class='submitbtn ']")
     public  WebElement uptadeButonu;
 
+    @FindBy (xpath = "(//span[@class='item'])[5]")
+    public WebElement changePasswordButonu;
+
+    @FindBy (xpath = "(//input[@class='form-control'])[1]")
+    public WebElement oldPasswordKutusu;
+
+    @FindBy (xpath = "(//input[@class='form-control'])[2]")
+    public  WebElement newPassswordKutusu;
+
+    @FindBy (xpath = "(//input[@class='form-control'])[3]")
+    public  WebElement confirmPasswordKutusu;
+
+
 
 
 
