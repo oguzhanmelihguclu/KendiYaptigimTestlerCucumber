@@ -15,7 +15,7 @@ Feature:  Kullanici siteye kayit oldugu bilgileri degistirebilmeli
     * kayit oldugu mobilnumarasını 123456 yapar
     * uptade butonuna basar ve degisikliklerin gerceklestigini test eder.
     * logout butonuna basar
-@wip
+
     Scenario: Kullanici siteye kayit oldugu mail sifresini degistirebilmelidir.
       * kullanici testotomasyonu anasayfaya gider
       * account butonuna basar
