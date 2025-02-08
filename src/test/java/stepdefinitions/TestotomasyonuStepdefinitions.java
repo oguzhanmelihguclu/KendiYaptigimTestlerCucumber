@@ -135,6 +135,7 @@ public class TestotomasyonuStepdefinitions {
 
         Driver.getDriver().get(ConfigReader.getProperty(configIstenenUrl));
 
+
     }
     @Then("url'in test data dosyasinda verilen {string} ile ayni oldugunu test eder")
     public void url_in_test_data_dosyasinda_verilen_ile_ayni_oldugunu_test_eder(String configIstenenUrl) {

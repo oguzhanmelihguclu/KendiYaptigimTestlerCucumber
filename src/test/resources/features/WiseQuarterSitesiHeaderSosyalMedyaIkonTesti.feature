@@ -1,4 +1,4 @@
-@wip
+
 Feature: İlgili sitedeki header bölümündeki sosyal medya ikonları erişilebilir olmalidir
 
   Scenario: İlgili sitedeki header bölümündeki sosyal medya ikonları görünür olmalidir

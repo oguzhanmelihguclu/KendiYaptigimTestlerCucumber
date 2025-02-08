@@ -52,6 +52,39 @@ public class WiseQuarter {
     @FindBy (xpath = "(//i[@class='fab fa-youtube'])[1]")
     public WebElement headerYouTubeIkonu;
 
+    @FindBy (xpath = "//iframe[@class='form-home']")
+    public WebElement formMenüsüIframeElementi;
+
+    @FindBy (xpath = "//em[text()='  Formu Doldur Kariyerini Değiştir']")
+    public WebElement bodyFormYazisi;
+
+    @FindBy (xpath = "(//input[@name='Name'])[1]")
+    public  WebElement formIsımButonu;
+
+    @FindBy (xpath = "(//input[@name='Name'])[2]")
+    public  WebElement formSoyadButonu;
+
+    @FindBy (xpath = "//input[@id='Email-arialabel']")
+    public  WebElement formEmailButonu;
+
+    @FindBy (xpath = "//input[@name='PhoneNumber']")
+    public  WebElement formTelefonButonu;
+
+    @FindBy (xpath = "(//button[@value='submit'])[1]")
+    public WebElement formGönderButonu;
+
+    @FindBy (xpath = "//p[@id='error-Name']")
+    public  WebElement isimYazmamaHataYazisi;
+
+    @FindBy (xpath = "//p[@id='error-Email']")
+    public  WebElement emailYazmamaHataYazisi;
+
+    @FindBy (xpath = "//p[@id='error-PhoneNumber']")
+    public  WebElement telefonYazmamaHataYazisi;
+
+    @FindBy (xpath = "//span[@class='alignCenter infoCont thankyouMsgText']")
+    public  WebElement formSayfasiKayitOlusturulduMesaji;
+
 
 
 

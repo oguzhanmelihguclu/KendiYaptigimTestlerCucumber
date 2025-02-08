@@ -2,8 +2,15 @@ package stepdefinitions;
 
 import io.cucumber.java.en.*;
 import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.WiseQuarter;
 import utilities.Driver;
+import utilities.ReusableMethods;
+
+import java.time.Duration;
 
 public class WiseQuarterStepdefinitions {
 
@@ -218,6 +225,110 @@ public class WiseQuarterStepdefinitions {
         String actualUrl=Driver.getDriver().getCurrentUrl().toLowerCase();
         Assertions.assertTrue(actualUrl.contains(expectedIcerik));
     }
+
+    @Given("kullanici body bölümündeki form doldur menüsünü görür")
+    public void kullanici_body_bölümündeki_form_doldur_menüsünü_görür() {
+
+     WebDriverWait wait = new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(10));
+     WebElement iframe = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//iframe[@class='form-home']")));
+     Driver.getDriver().switchTo().frame(iframe);
+     Assertions.assertTrue(wiseQuarter.bodyFormYazisi.isDisplayed());
+
+
+
+
+
+
+    }
+    @Given("kullanici gecerli bilgiler girer")
+    public void kullanici_gecerli_bilgiler_girer() {
+
+        wiseQuarter.formIsımButonu.sendKeys("John");
+        wiseQuarter.formSoyadButonu.sendKeys("Doe");
+        wiseQuarter.formEmailButonu.sendKeys("dapay28294@perceint.com");
+        wiseQuarter.formTelefonButonu.sendKeys("+902621212121255");
+
+    }
+    @Given("kullanici gönder butonuna tıklar")
+    public void kullanici_gönder_butonuna_tıklar() {
+        wiseQuarter.formGönderButonu.click();
+
+    }
+    @Given("talebinin gönderildiğine dair bir geri bildirim görür")
+    public void talebinin_gönderildiğine_dair_bir_geri_bildirim_görür() {
+
+        Assertions.assertTrue(wiseQuarter.formSayfasiKayitOlusturulduMesaji.isDisplayed());
+
+    }
+
+    @Given("isim haric tüm bilgileri girer")
+    public void isim_haric_tüm_bilgileri_girer() {
+
+
+        wiseQuarter.formSoyadButonu.sendKeys("Doe");
+        wiseQuarter.formEmailButonu.sendKeys("dapay28294@perceint.com");
+        wiseQuarter.formTelefonButonu.sendKeys("+902621212121255");
+
+    }
+    @Given("isim ve soyisim bölümünü eksik yazdiniz uyarisini alır")
+    public void isim_ve_soyisim_bölümünü_eksik_yazdiniz_uyarisini_alır() {
+
+        Assertions.assertTrue(wiseQuarter.isimYazmamaHataYazisi.isDisplayed());
+    }
+
+    @Given("soyisim haric tüm bilgileri girer")
+    public void soyisim_haric_tüm_bilgileri_girer() {
+
+        wiseQuarter.formIsımButonu.sendKeys("John");
+        wiseQuarter.formEmailButonu.sendKeys("dapay28294@perceint.com");
+        wiseQuarter.formTelefonButonu.sendKeys("+902621212121255");
+
+    }
+    @Given("e-posta haric tüm bilgileri girer")
+    public void e_posta_haric_tüm_bilgileri_girer() {
+
+        wiseQuarter.formIsımButonu.sendKeys("John");
+        wiseQuarter.formSoyadButonu.sendKeys("Doe");
+        wiseQuarter.formTelefonButonu.sendKeys("+902621212121255");
+
+    }
+
+    @Given("e-posta girmelisiniz uyarisi alir")
+    public void e_posta_girmelisiniz_uyarisi_alir() {
+     Assertions.assertTrue(wiseQuarter.emailYazmamaHataYazisi.isDisplayed());
+    }
+
+    @Given("telefon haric tüm bilgileri girer")
+    public void telefon_haric_tüm_bilgileri_girer() {
+
+        wiseQuarter.formIsımButonu.sendKeys("John");
+        wiseQuarter.formSoyadButonu.sendKeys("Doe");
+        wiseQuarter.formEmailButonu.sendKeys("dapay28294@perceint.com");
+
+
+    }
+    @Given("telefon girmelisiniz uyarisi alir")
+    public void telefon_girmelisiniz_uyarisi_alir() {
+     Assertions.assertTrue(wiseQuarter.telefonYazmamaHataYazisi.isDisplayed());
+    }
+
+    @Given("isim ve soy isim bölümüne rakam girer diger bölümleri gecerli bilgi girer")
+    public void isim_ve_soy_isim_bölümüne_rakam_girer_diger_bölümleri_gecerli_bilgi_girer() {
+
+        wiseQuarter.formIsımButonu.sendKeys("1111");
+        wiseQuarter.formSoyadButonu.sendKeys("1111");
+        wiseQuarter.formEmailButonu.sendKeys("dapay28294@perceint.com");
+        wiseQuarter.formTelefonButonu.sendKeys("+902621212121255");
+    }
+
+    @Given("kullanici hatali bir mail adresi girer ve diger bilgileri dogru girer")
+    public void kullanici_hatali_bir_mail_adresi_girer_ve_diger_bilgileri_dogru_girer() {
+        wiseQuarter.formIsımButonu.sendKeys("John");
+        wiseQuarter.formSoyadButonu.sendKeys("Doe");
+        wiseQuarter.formEmailButonu.sendKeys("dapay28294@perceint.co");
+        wiseQuarter.formTelefonButonu.sendKeys("+902621212121255");
+    }
+
 
 
 
