@@ -1,9 +1,11 @@
 package stepdefinitions;
 
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.*;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.WiseQuarter;
@@ -328,6 +330,282 @@ public class WiseQuarterStepdefinitions {
         wiseQuarter.formEmailButonu.sendKeys("dapay28294@perceint.co");
         wiseQuarter.formTelefonButonu.sendKeys("+902621212121255");
     }
+
+    @Given("kullanici body bölümündeki yazilim kurslari ve bootcamp basliklarini ve iceriklerini görür")
+    public void kullanici_body_bölümündeki_yazilim_kurslari_ve_bootcamp_basliklarini_ve_iceriklerini_görür() {
+
+        Assertions.assertTrue(wiseQuarter.bodyBootCampNedirBasligi.isDisplayed());
+        Assertions.assertTrue(wiseQuarter.bodyYazilimKurslariBasligi.isDisplayed());
+        Assertions.assertTrue(wiseQuarter.bodyBootcampNedirIcerigi.isDisplayed());
+        Assertions.assertTrue(wiseQuarter.bodyYazilimKurslariIcerigi.isDisplayed());
+    }
+    @Given("kullanici basliklarla iliskili resmi görür")
+    public void kullanici_basliklarla_iliskili_resmi_görür() {
+
+        Assertions.assertTrue(wiseQuarter.bootCampNedirResimleri.isDisplayed());
+
+    }
+
+    @Given("kullanici yazilim kurslari basligini incelerken altta bulunan daha fazla ogren linkine tıklar")
+    public void kullanici_yazilim_kurslari_basligini_incelerken_altta_bulunan_daha_fazla_ogren_linkine_tıklar() {
+
+        wiseQuarter.bodyDahaFazlaOgreninButonu.click();
+    }
+    @Given("kullanici daha fazla ogren ile ilgili sayfaya gittigini dogrular")
+    public void kullanici_daha_fazla_ogren_ile_ilgili_sayfaya_gittigini_dogrular() {
+
+        String expectedBaslikIcerik = "wise quarter";
+        String actualBaslikTitle=Driver.getDriver().getTitle().toLowerCase();
+
+        Assertions.assertTrue(actualBaslikTitle.contains(expectedBaslikIcerik));
+    }
+
+    @Given("kullanici body kısmındaki yeniliklerden haberdar olun menüsünü görür")
+    public void kullanici_body_kısmındaki_yeniliklerden_haberdar_olun_menüsünü_görür() {
+
+        Assertions.assertTrue(wiseQuarter.YeniliklerdenHaberdarOlunMenüsü.isDisplayed());
+    }
+    @Given("kullanici mail adresini girer")
+    public void kullanici_mail_adresini_girer() {
+
+        wiseQuarter.yeniliklerdenHaberdarOlunEmailBölümü.sendKeys("asdasd@gmail.com");
+
+    }
+    @Given("kullanici yeniliklerden haberdar olun butonuna tıklar")
+    public void kullanici_yeniliklerden_haberdar_olun_butonuna_tıklar() {
+
+        wiseQuarter.yeniliklerdenHaberdarOlunButonu.click();
+        ReusableMethods.bekle(2);
+
+
+    }
+    @Given("kullanici isleminiz basarili olmustur geri bildirimi alir")
+    public void kullanici_isleminiz_basarili_olmustur_geri_bildirimi_alir() {
+
+        String expected= "Basarili Olmustur";
+        String actual= wiseQuarter.yeniliklerdenHaberdarOlunGeriBildirim.getText();
+        Assertions.assertEquals(expected,actual);
+
+    }
+
+    @Given("kullanici ilgili youtube videosunu görür ve tıklar")
+    public void kullanici_ilgili_youtube_videosunu_görür_ve_tıklar() {
+
+        Assertions.assertTrue(wiseQuarter.GelecekParmaklarinizUcundaVideosuPlayTusu.isDisplayed());
+        wiseQuarter.GelecekParmaklarinizUcundaVideosuPlayTusu.click();
+
+
+    }
+    @Given("kullanici acilan sayfada videosunun ortasındaki play tusuna tıklar")
+    public void kullanici_acilan_sayfada_videosunun_ortasındaki_play_tusuna_tıklar() {
+
+        Driver.getDriver().switchTo().frame(wiseQuarter.GelecekParmaklarinizUucundaIframe);
+       wiseQuarter.GelecekParmaklarinizUucundaIframePlayTusu.click();
+        ReusableMethods.bekle(5);
+
+    }
+    @Given("kullanici ilgili videoyu izledikten sonra kapatır")
+    public void kullanici_ilgili_videoyu_izledikten_sonra_kapatır() {
+
+        Driver.getDriver().switchTo().defaultContent();
+        wiseQuarter.videoyuKapatmaButonu.click();
+        ReusableMethods.bekle(2);
+
+    }
+
+    @Given("kullanici body bölümündeki kurslarimiz basligini görür")
+    public void kullanici_body_bölümündeki_kurslarimiz_basligini_görür() {
+
+        Assertions.assertTrue(wiseQuarter.bodyYazilimKurslariBasligi.isDisplayed());
+    }
+    @Given("kullanici kurslarimiz basligi altindaki Yazilim Test Uzmanligi basligini görür")
+    public void kullanici_kurslarimiz_basligi_altindaki_yazilim_test_uzmanligi_basligini_görür() {
+        Assertions.assertTrue(wiseQuarter.kurslarimizYazilimTestUzmanıBasligi.isDisplayed());
+
+    }
+    @Given("kullanici Yazilim Test Uzmanlıgı yazisindaki daha fazla oku linkine tıklar")
+    public void kullanici_yazilim_test_uzmanlıgı_yazisindaki_daha_fazla_oku_linkine_tıklar() {
+
+        wiseQuarter.yazilimTestUzmanıDahaFazlaOkuLinki.click();
+
+    }
+
+    @Given("kullanici Yazilim Test Uzmanlıgı  sayfasına gittigini dogrular")
+    public void kullanici_yazilim_test_uzmanlıgı_sayfasına_gittigini_dogrular() {
+
+        String expectedIcerik="yazılım test uzmanlığı";
+        String actualTitle=Driver.getDriver().getTitle().toLowerCase();
+        Assertions.assertTrue(actualTitle.contains(expectedIcerik));
+    }
+
+    @Given("kullanici kurslarimiz basligi altindaki Siber Güvenlik Uzmanı basligini görür")
+    public void kullanici_kurslarimiz_basligi_altindaki_siber_güvenlik_uzmanı_basligini_görür() {
+      Assertions.assertTrue(wiseQuarter.kurslarimizSiberGüvenlikBasligi.isDisplayed());
+
+    }
+    @Given("kullanici Siber Güvenlik Uzmanı yazisindaki daha fazla oku linkine tıklar")
+    public void kullanici_siber_güvenlik_uzmanı_yazisindaki_daha_fazla_oku_linkine_tıklar() {
+
+        wiseQuarter.siberGüvenlikUzmanıDahaFazlaOkuLinki.click();
+    }
+    @Given("kullanici Siber Güvenlik Uzmanı sayfasına gittigini dogrular")
+    public void kullanici_siber_güvenlik_uzmanı_sayfasına_gittigini_dogrular() {
+
+        String expectedIcerik="siber güvenlik";
+        String actualTitle=Driver.getDriver().getTitle().toLowerCase();
+        Assertions.assertTrue(actualTitle.contains(expectedIcerik));
+
+    }
+
+    @Given("kullanici kurslarimiz basligi altindaki Front-End Developer basligini görür")
+    public void kullanici_kurslarimiz_basligi_altindaki_front_end_developer_basligini_görür() {
+
+        Assertions.assertTrue(wiseQuarter.kurslarimizFrontEndBasligi.isDisplayed());
+    }
+    @Given("kullanici Front-End Developer yazisindaki daha fazla oku linkine tıklar")
+    public void kullanici_front_end_developer_yazisindaki_daha_fazla_oku_linkine_tıklar() {
+
+        wiseQuarter.frontEndDahaFazlaOkuLinki.click();
+
+    }
+    @Given("kullanici Front-End Developer sayfasına gittigini dogrular")
+    public void kullanici_front_end_developer_sayfasına_gittigini_dogrular() {
+
+        String expectedIcerik="front-end developer";
+        String actualTitle=Driver.getDriver().getTitle().toLowerCase();
+        Assertions.assertTrue(actualTitle.contains(expectedIcerik));
+
+    }
+
+    @Given("kullanici kurslarimiz basligi altindaki Salesforce basligini görür")
+    public void kullanici_kurslarimiz_basligi_altindaki_salesforce_basligini_görür() {
+
+        Assertions.assertTrue(wiseQuarter.kurslarimizSalesForceBasligi.isDisplayed());
+
+    }
+    @Given("kullanici Salesforce yazisindaki daha fazla oku linkine tıklar")
+    public void kullanici_salesforce_yazisindaki_daha_fazla_oku_linkine_tıklar() {
+
+        wiseQuarter.salesForceDahaFazlaOkuLinki.click();
+
+    }
+    @Given("kullanici Salesforce sayfasına gittigini dogrular")
+    public void kullanici_salesforce_sayfasına_gittigini_dogrular() {
+
+        String expectedIcerik="salesforce";
+        String actualTitle=Driver.getDriver().getTitle().toLowerCase();
+        Assertions.assertTrue(actualTitle.contains(expectedIcerik));
+
+    }
+
+    @Given("kullanici kurslarimiz basligi altindaki Ücretsiz Kurslar basligini görür")
+    public void kullanici_kurslarimiz_basligi_altindaki_ücretsiz_kurslar_basligini_görür() {
+
+        Assertions.assertTrue(wiseQuarter.kurslarimizUcretsizKurslarBasligi.isDisplayed());
+    }
+    @Given("kullanici Ücretsiz Kurslar yazisindaki daha fazla oku linkine tıklar")
+    public void kullanici_ücretsiz_kurslar_yazisindaki_daha_fazla_oku_linkine_tıklar() {
+
+        wiseQuarter.ucretsizKurslarDahaFazlaOkuLinki.click();
+    }
+    @Given("kullanici Ücretsiz Kurslar sayfasına gittigini dogrular")
+    public void kullanici_ücretsiz_kurslar_sayfasına_gittigini_dogrular() {
+
+        String expectedIcerik="ücretsiz kurs";
+        String actualTitle=Driver.getDriver().getTitle().toLowerCase();
+        Assertions.assertTrue(actualTitle.contains(expectedIcerik));
+
+    }
+
+    @Given("kullanici kurslarimiz basligi altindaki Amazon E-Ticaret Eğitimi basligini görür")
+    public void kullanici_kurslarimiz_basligi_altindaki_amazon_e_ticaret_eğitimi_basligini_görür() {
+
+        Assertions.assertTrue(wiseQuarter.kurslarimizAmazonEticaretBasligi.isDisplayed());
+    }
+    @Given("kullanici Amazon E-Ticaret Eğitimi yazisindaki daha fazla oku linkine tıklar")
+    public void kullanici_amazon_e_ticaret_eğitimi_yazisindaki_daha_fazla_oku_linkine_tıklar() {
+
+        wiseQuarter.amazonDahaFazlaOkuLinki.click();
+    }
+    @Given("kullanici Amazon E-Ticaret Eğitimi sayfasına gittigini dogrular")
+    public void kullanici_amazon_e_ticaret_eğitimi_sayfasına_gittigini_dogrular() {
+
+        String expectedIcerik="amazon e-ticaret";
+        String actualTitle=Driver.getDriver().getTitle().toLowerCase();
+        Assertions.assertTrue(actualTitle.contains(expectedIcerik));
+
+    }
+
+    @Given("kullanici body bölümündeki çocuklar için kurslarimiz basligini görür")
+    public void kullanici_body_bölümündeki_çocuklar_için_kurslarimiz_basligini_görür() {
+
+        Assertions.assertTrue(wiseQuarter.cocuklarIcınKurslarimizBasligi.isDisplayed());
+    }
+    @Given("kullanici çocuklar için kurslar altındaki Scratch İle Programlama basligini görür")
+    public void kullanici_çocuklar_için_kurslar_altındaki_scratch_i̇le_programlama_basligini_görür() {
+
+        Assertions.assertTrue(wiseQuarter.scratchIleProgramlamaBasligi.isDisplayed());
+
+    }
+    @Given("kullanici Scratch İle Programlama yazisindaki daha fazla bilgi edin linkine tıklar")
+    public void kullanici_scratch_i̇le_programlama_yazisindaki_daha_fazla_bilgi_edin_linkine_tıklar() {
+
+        wiseQuarter.dahaFazlaBilgiEdininLinki.click();
+    }
+    @Given("kullanıcı daha fazla bilgi edinin sayfasına gitigini dogrular")
+    public void kullanıcı_daha_fazla_bilgi_edinin_sayfasına_gitigini_dogrular() {
+
+        String expectedIcerik="wise quarter kids";
+        String actualTitle=Driver.getDriver().getTitle().toLowerCase();
+        Assertions.assertTrue(actualTitle.contains(expectedIcerik));
+
+
+    }
+
+    @Given("kullanici body bölümündeki Öğrenci Yorumları basligini görür")
+    public void kullanici_body_bölümündeki_öğrenci_yorumları_basligini_görür() {
+
+        Assertions.assertTrue(wiseQuarter.bodyOgrenciYorumlariBasligi.isDisplayed());
+    }
+
+    @Given("kullanici body bölümündeki Başarı Hikayeleri başlığını görür")
+    public void kullanici_body_bölümündeki_başarı_hikayeleri_başlığını_görür() {
+
+        Assertions.assertTrue(wiseQuarter.basarıHikayeleriBasligi.isDisplayed());
+    }
+
+    @Given("kullanici  salesforce developer videosuna tıklar")
+    public void kullanici_salesforce_developer_videosuna_tıklar() {
+
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys(org.openqa.selenium.Keys.PAGE_DOWN).perform();
+        actions.sendKeys(org.openqa.selenium.Keys.PAGE_DOWN).perform();
+        actions.sendKeys(org.openqa.selenium.Keys.PAGE_DOWN).perform();
+        actions.sendKeys(org.openqa.selenium.Keys.PAGE_DOWN).perform();
+        actions.sendKeys(org.openqa.selenium.Keys.PAGE_DOWN).perform();
+        actions.sendKeys(org.openqa.selenium.Keys.PAGE_DOWN).perform();
+        actions.sendKeys(org.openqa.selenium.Keys.PAGE_DOWN).perform();
+        actions.sendKeys(org.openqa.selenium.Keys.PAGE_DOWN).perform();
+        actions.sendKeys(org.openqa.selenium.Keys.PAGE_DOWN).perform();
+
+        WebElement salesForceIframeElementi = Driver.getDriver().findElement(By.xpath("(//iframe)[3]"));
+        Driver.getDriver().switchTo().frame(salesForceIframeElementi);
+
+        wiseQuarter.salesforceVideosuPlayTusu.click();
+    }
+
+
+    @Given("kullanici ilgili videoyu izler ve kapatır")
+    public void kullanici_ilgili_videoyu_izler_ve_kapatır() {
+
+        ReusableMethods.bekle(5);
+
+    }
+
+
+
+
+
 
 
 

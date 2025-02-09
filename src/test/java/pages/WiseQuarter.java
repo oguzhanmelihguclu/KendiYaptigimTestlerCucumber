@@ -85,6 +85,132 @@ public class WiseQuarter {
     @FindBy (xpath = "//span[@class='alignCenter infoCont thankyouMsgText']")
     public  WebElement formSayfasiKayitOlusturulduMesaji;
 
+    @FindBy (xpath = "(//span[@class='elementor-button-text'])[1]")
+    public  WebElement bodyDahaFazlaOgreninButonu;
+
+    @FindBy (xpath = "//h1[@class='gyan-title-heading']")
+    public  WebElement bodyYazilimKurslariBasligi;
+
+    @FindBy (xpath = "(//div[@class='gyan-title-desc'])[1]")
+    public  WebElement bodyYazilimKurslariIcerigi;
+
+    @FindBy (xpath = "//div[@class='gyan-title-subtitle']")
+    public  WebElement bodyBootCampNedirBasligi;
+
+    @FindBy (xpath = "(//div[@class='gyan-title-desc'])[2]")
+    public  WebElement bodyBootcampNedirIcerigi;
+
+    @FindBy (xpath = "(//div[@class='elementor-widget-container'])[9]")
+    public  WebElement bootCampNedirResimleri;
+
+    @FindBy (xpath = "(//div[@class='elementor-widget-wrap elementor-element-populated'])[7]")
+    public  WebElement YeniliklerdenHaberdarOlunMenüsü;
+
+    @FindBy (xpath = "//input[@type='email']")
+    public  WebElement yeniliklerdenHaberdarOlunEmailBölümü;
+
+    @FindBy (xpath = "//button[@type='submit']")
+    public  WebElement yeniliklerdenHaberdarOlunButonu;
+
+    @FindBy (xpath = "//p[@class='gyan-subs-error']")
+    public  WebElement yeniliklerdenHaberdarOlunGeriBildirim;
+
+    @FindBy (xpath = "(//img[@loading='lazy'])[5]")
+    public  WebElement GelecekParmaklarinizUcundaVideosuPlayTusu;
+
+    @FindBy (xpath = "//iframe[@class='mfp-iframe']")
+    public  WebElement GelecekParmaklarinizUucundaIframe;
+
+    @FindBy (xpath = "//button[@class='mfp-close']")
+    public  WebElement videoyuKapatmaButonu;
+
+    @FindBy (xpath = "//button[@  aria-label='Oynat']")
+    public  WebElement GelecekParmaklarinizUucundaIframePlayTusu ;
+
+    @FindBy (xpath = "(//span[@class='elementor-button-text'])[2]")
+    public  WebElement yazilimTestUzmanıDahaFazlaOkuLinki;
+
+    @FindBy (xpath = "(//span[@class='elementor-button-text'])[3]")
+    public  WebElement siberGüvenlikUzmanıDahaFazlaOkuLinki;
+
+    @FindBy (xpath = "(//span[@class='elementor-button-text'])[4]")
+    public  WebElement frontEndDahaFazlaOkuLinki;
+
+    @FindBy (xpath = "(//span[@class='elementor-button-text'])[5]")
+    public  WebElement salesForceDahaFazlaOkuLinki;
+
+    @FindBy (xpath = "(//span[@class='elementor-button-text'])[6]")
+    public  WebElement ucretsizKurslarDahaFazlaOkuLinki;
+
+    @FindBy (xpath = "(//span[@class='elementor-button-text'])[7]")
+    public  WebElement amazonDahaFazlaOkuLinki;
+
+    @FindBy (xpath = "(//h2[@class='gyan-title-heading'])[3]")
+    public  WebElement bodyKurslarimizBasligi;
+
+    @FindBy (xpath = "(//h2[@class='gyan-title-heading'])[4]")
+    public  WebElement kurslarimizYazilimTestUzmanıBasligi;
+
+    @FindBy (xpath = "(//h2[@class='gyan-title-heading'])[5]")
+    public  WebElement kurslarimizSiberGüvenlikBasligi;
+
+    @FindBy (xpath = "(//h2[@class='gyan-title-heading'])[6]")
+    public  WebElement kurslarimizFrontEndBasligi;
+
+    @FindBy (xpath = "(//h2[@class='gyan-title-heading'])[7]")
+    public  WebElement kurslarimizSalesForceBasligi;
+
+    @FindBy (xpath = "(//h2[@class='gyan-title-heading'])[8]")
+    public  WebElement kurslarimizUcretsizKurslarBasligi;
+
+    @FindBy (xpath = "(//h2[@class='gyan-title-heading'])[9]")
+    public  WebElement kurslarimizAmazonEticaretBasligi;
+
+    @FindBy (xpath = "//h2[text()='Çocuklar İçin Kurslarımız']")
+    public  WebElement cocuklarIcınKurslarimizBasligi;
+
+    @FindBy (xpath = "//a[text()='Scratch İle Programlama ']")
+    public  WebElement scratchIleProgramlamaBasligi;
+
+    @FindBy (xpath = "(//span[text()='Daha fazla bilgi edin'])[1]")
+    public  WebElement dahaFazlaBilgiEdininLinki;
+
+    @FindBy (xpath = "//h2[text()='Öğrenci Yorumları']")
+    public  WebElement bodyOgrenciYorumlariBasligi;
+
+    @FindBy (xpath = "//h2[text()='Başarı Hikayeleri']")
+    public  WebElement basarıHikayeleriBasligi;
+
+    @FindBy (tagName = "(//iframe)[3]")
+    public  WebElement salesforceVideosuIframe;
+
+    @FindBy (xpath = "//button[@title='Oynat']")
+    public  WebElement salesforceVideosuPlayTusu;
+
+
+
+
+;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
