@@ -187,6 +187,50 @@ public class WiseQuarter {
     @FindBy (xpath = "//button[@title='Oynat']")
     public  WebElement salesforceVideosuPlayTusu;
 
+    @FindBy (xpath = "//img[@class='gyan-wid-logo-img']")
+    public  WebElement footerWiseQuarterResmi;
+
+    @FindBy (xpath = "(//li[@class='ic-medium ic-round'])[1]")
+    public  WebElement footerTwitterIkonu;
+
+    @FindBy (xpath = "(//li[@class='ic-medium ic-round'])[2]")
+    public  WebElement footerFacebookIkonu;
+
+    @FindBy (xpath = "(//li[@class='ic-medium ic-round'])[3]")
+    public  WebElement footerLinkedInIkonu;
+
+    @FindBy (xpath = "(//li[@class='ic-medium ic-round'])[4]")
+    public  WebElement footerInstagramIkonu;
+
+    @FindBy (xpath = "(//li[@class='ic-medium ic-round'])[5]")
+    public  WebElement footerYoutubeIkonu;
+
+    @FindBy (xpath = "//li[@id='menu-item-2482']")
+    public  WebElement footerLMSlinki;
+
+    @FindBy (xpath = "//li[@id='menu-item-2483']")
+    public  WebElement footerIletisimLinki;
+
+    @FindBy (xpath = "//li[@id='menu-item-2484']")
+    public  WebElement footerKayitOlLinki;
+
+    @FindBy (xpath = "//li[@id='menu-item-2485']")
+    public  WebElement footerRandevuAlLinki;
+
+    @FindBy (xpath = "(//div[@class='swm-widget-content'])[3]")
+    public  WebElement footerBaslangicBasligi;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
