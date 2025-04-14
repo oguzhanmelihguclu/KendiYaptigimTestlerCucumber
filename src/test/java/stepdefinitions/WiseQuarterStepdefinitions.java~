@@ -171,13 +171,9 @@ public class WiseQuarterStepdefinitions {
     public void kullanici_header_da_bulunan_sosyal_medya_ikonlarını_görür() {
 
         Assertions.assertTrue(wiseQuarter.headerTwitterIkonu.isDisplayed());
-        ReusableMethods.bekle(1);
         Assertions.assertTrue(wiseQuarter.headerFacebookIkonu.isDisplayed());
-        ReusableMethods.bekle(1);
         Assertions.assertTrue(wiseQuarter.headerLinkedInIkonu.isDisplayed());
-        ReusableMethods.bekle(1);
         Assertions.assertTrue(wiseQuarter.headerInstagramIkonu.isDisplayed());
-        ReusableMethods.bekle(1);
         Assertions.assertTrue(wiseQuarter.headerYouTubeIkonu.isDisplayed());
     }
 
