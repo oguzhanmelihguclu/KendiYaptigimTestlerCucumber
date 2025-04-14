@@ -36,7 +36,6 @@ public class TestotomasyonuStepdefinitions {
     @Given("kullanici testotomasyonu anasayfaya gider")
     public void kullanici_testotomasyonu_anasayfaya_gider() {
         Driver.getDriver().get(ConfigReader.getProperty("toUrl"));
-        ReusableMethods.bekle(1);
     }
 
     @When("arama kutusuna phone yazip aratir")
