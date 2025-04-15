@@ -1,31 +1,16 @@
 package runners;
 
-import io.cucumber.junit.platform.engine.Constants;
-import org.junit.platform.suite.api.ConfigurationParameter;
+import io.cucumber.junit.platform.engine.Cucumber;
 import org.junit.platform.suite.api.IncludeEngines;
 import org.junit.platform.suite.api.SelectClasspathResource;
-import org.junit.platform.suite.api.Suite;
+import org.junit.platform.suite.api.ConfigurationParameter;
+import org.junit.jupiter.api.extension.ExtendWith;
 
-@Suite
+@Cucumber
 @IncludeEngines("cucumber")
-@SelectClasspathResource("features") // src/test/resources/features dizinini hedef alır
-@ConfigurationParameter(key = Constants.FEATURES_PROPERTY_NAME, value = "src/test/resources/features")
-@ConfigurationParameter(key = Constants.GLUE_PROPERTY_NAME, value = "stepdefinitions")
-@ConfigurationParameter(key = Constants.FILTER_TAGS_PROPERTY_NAME, value = "@wip")
-@ConfigurationParameter(key = Constants.EXECUTION_DRY_RUN_PROPERTY_NAME, value = "false")
-@ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME, value = "pretty, json:target/cucumber-report/cucumber.json")
+@SelectClasspathResource("features") // features klasörü yolunu doğru belirttiğinden emin ol
+@ConfigurationParameter(key = "cucumber.plugin", value = "json:target/cucumber.json") // JSON raporu oluşturmak için
+@ConfigurationParameter(key = "cucumber.glue", value = "stepdefinitions") // Step definitions klasör yolunu doğru belirt
 public class Runner {
-
-    /*
-        Runner class'ı, feature dosyalarını step definition'lar ile eşleştirip
-        testleri JUnit 5 üzerinde çalıştırmamıza olanak sağlar.
-
-        - @Suite ve @IncludeEngines("cucumber") → Cucumber engine'ini JUnit 5 ile entegre eder.
-        - @SelectClasspathResource("features") → Feature dosyalarının bulunduğu dizini belirtir.
-        - FEATURES_PROPERTY_NAME → Feature'ların konumunu tanımlar (test/resources içinde olmalı).
-        - GLUE_PROPERTY_NAME → Step definition'ların package yolunu belirtir.
-        - FILTER_TAGS_PROPERTY_NAME → Sadece belirli tag ile işaretlenmiş senaryoları çalıştırır.
-        - EXECUTION_DRY_RUN_PROPERTY_NAME → true ise sadece eksik adımları kontrol eder, çalıştırmaz.
-        - PLUGIN_PROPERTY_NAME → pretty çıktısı + JSON raporu oluşturur.
-     */
+    // Boş bırakılabilir çünkü testlerin çalışma biçimi tamamen Cucumber ve JUnit 5 ile entegre
 }
