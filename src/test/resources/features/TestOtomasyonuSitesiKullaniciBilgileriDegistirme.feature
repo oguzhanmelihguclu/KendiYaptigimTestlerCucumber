@@ -1,3 +1,4 @@
+@wip
 Feature:  Kullanici siteye kayit oldugu bilgileri degistirebilmeli
 
   Scenario: Kullanici siteye kayit oldugu ismi ve soy ismi degistirebilmelidir

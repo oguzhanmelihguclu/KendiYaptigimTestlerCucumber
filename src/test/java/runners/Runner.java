@@ -9,58 +9,51 @@ import org.junit.platform.suite.api.Suite;
 @Suite
 @IncludeEngines("cucumber")
 @SelectClasspathResource("src/test/java")
-@ConfigurationParameter(key = Constants.FEATURES_PROPERTY_NAME,value = "src/test/resources/features")
-@ConfigurationParameter(key = Constants.GLUE_PROPERTY_NAME,value = "stepdefinitions")
-@ConfigurationParameter(key = Constants.FILTER_TAGS_PROPERTY_NAME,value = "@wip")
-@ConfigurationParameter(key = Constants.EXECUTION_DRY_RUN_PROPERTY_NAME,value = "false")
-
-@ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME,value = "pretty, html:target/cucumber-report/HtmlReport.html")
-//@ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME,value = "pretty, json:target/json-reports/cucumberRapor.json")
-//@ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME,value = "pretty, junit:target/xml-report/cucumber.xml")
-
-
+@ConfigurationParameter(key = Constants.FEATURES_PROPERTY_NAME, value = "src/test/resources/features")
+@ConfigurationParameter(key = Constants.GLUE_PROPERTY_NAME, value = "stepdefinitions")
+@ConfigurationParameter(key = Constants.FILTER_TAGS_PROPERTY_NAME, value = "@wip")
+@ConfigurationParameter(key = Constants.EXECUTION_DRY_RUN_PROPERTY_NAME, value = "false")
+@ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME, value = "pretty, json:target/cucumber-report/cucumber.json") // JSON raporu oluşturacak şekilde güncellendi.
 public class Runner {
 
     /*
-        Cucumber'daki Runner Class'i icinde hicbir kod yazilmaz
+        Cucumber'daki Runner Class'ı içinde hiçbir kod yazılmaz.
 
-        Gorevi TestNG'deki .xml dosyalari gibi
-        toplu calistirmayi saglamaktir.
+        Görevi TestNG'deki .xml dosyaları gibi toplu çalıştırmayı sağlamaktır.
 
-        Runner class'i gorevini
-        kullanacagimiz notasyon'lar ile gerceklestirir.
+        Runner class'ı görevini
+        kullanacağımız notasyonlar ile gerçekleştirir.
      */
     /*
-        @IncludeEngines("cucumber")  : Class'in cucumber ile calismasini saglar
-        @SelectClasspathResource("src/test/java") : Java class'larini bulacagi dosya yolu
+        @IncludeEngines("cucumber")  : Class'ın cucumber ile çalışmasını sağlar
+        @SelectClasspathResource("src/test/java") : Java class'larını bulacağı dosya yolu
 
         Constants.FEATURES_PROPERTY_NAME : "src/test/resources/features"
-        calistirilacak feature dosyalarinin yerini gosterir
+        çalıştırılacak feature dosyalarının yerini gösterir
 
         Constants.GLUE_PROPERTY_NAME : "stepdefinitions"
-        belirlenen feature dosyalarini calistirmak icin
-        kullanilacak stepdefinition'larin bulundugu package'in dosya yolu
+        belirlenen feature dosyalarını çalıştırmak için
+        kullanılacak step definition'ların bulunduğu package'in dosya yolu
 
-        EGER sadece bu notasyonlari kullanirsak,
-        features klasoru icindeki tum feature'lari calistirir
+        EĞER sadece bu notasyonları kullanırsak,
+        features klasörü içindeki tüm feature'ları çalıştırır.
 
-        istedigimiz feature'lari calistirmak icin
-        cucumber 2 alternatif sunar
-        1- istediginiz feature'lari bir klasor icine koyup
-           sadece o klasoru calistirmasini isteyebilirsiniz
-        2- istediginiz Feature veya Scenario'lari bir tag ile belirleyip,
+        İstediğimiz feature'ları çalıştırmak için
+        cucumber 2 alternatif sunar:
+        1- istediğiniz feature'ları bir klasör içine koyup
+           sadece o klasörü çalıştırmasını isteyebilirsiniz.
+        2- istediğiniz Feature veya Scenario'ları bir tag ile belirleyip,
            Constants.FILTER_TAGS_PROPERTY_NAME : "@smoke"
 
-        EGER Runner dosyasi ile calistirdigimiz feature dosyalarini
-        SADECE eksik stepdefinition'lari bulmak ve method'larini olusturmak icin
-        calistiriyorsak
+        EĞER Runner dosyası ile çalıştırdığımız feature dosyalarını
+        SADECE eksik step definition'ları bulmak ve method'larını oluşturmak için
+        çalıştırıyorsak
 
-        Constants.EXECUTION_DRY_RUN_PROPERTY_NAME : "true" yapariz
+        Constants.EXECUTION_DRY_RUN_PROPERTY_NAME : "true" yaparız
 
-        dryRun degeri true iken Runner SADECE eksik adim kontrolu yapar
-        Feature veya Scenario'lari calistirmaz
-        eksik adim varsa failed deyip eksik adimlari verir
-        eksik adim yoksa passed deyip calismayi bitirir
-
+        dryRun değeri true iken Runner SADECE eksik adım kontrolü yapar
+        Feature veya Scenario'ları çalıştırmaz
+        eksik adım varsa failed deyip eksik adımları verir
+        eksik adım yoksa passed deyip çalışmayı bitirir
      */
 }
