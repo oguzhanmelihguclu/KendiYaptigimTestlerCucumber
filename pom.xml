@@ -120,28 +120,6 @@
                 </configuration>
             </plugin>
 
-
-            <!-- Cucumber HTML raporları üretmek için -->
-            <plugin>
-                <groupId>net.masterthought</groupId>
-                <artifactId>maven-cucumber-reporting</artifactId>
-                <version>5.8.2</version>
-                <executions>
-                    <execution>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <jsonFiles>
-                                <file>target/cucumber.json</file>
-                            </jsonFiles>
-                            <buildNumber>1</buildNumber>
-                            <projectName>Team148 Cucumber Project</projectName>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
 </project>
