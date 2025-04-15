@@ -11,5 +11,5 @@ import org.junit.platform.suite.api.ConfigurationParameter;
 @ConfigurationParameter(key = "cucumber.plugin", value = "json:target/cucumber.json") // JSON raporu oluşturmak için
 @ConfigurationParameter(key = "cucumber.glue", value = "stepdefinitions") // Adım tanımlarının yerini belirt
 public class Runner {
-    // Projede paralel çalıştırmaya uygun test metodları varsa eklenebilir
+    // Runner sınıfı
 }
