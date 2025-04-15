@@ -89,7 +89,7 @@
                     <includes>
                         <include>**/runners/*Runner*.java</include>
                     </includes>
-                    <testFailureIgnore>true</testFailureIgnore>
+                    <testFailureIgnore>false</testFailureIgnore> <!-- Hataları göz ardı etmeme -->
                 </configuration>
             </plugin>
 
@@ -126,5 +126,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
