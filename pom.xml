@@ -85,7 +85,27 @@
                 </configuration>
             </plugin>
 
-            <!-- JAR dosyasını oluşturmak için doğru yapılandırma -->
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>5.8.2</version>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <jsonFiles>
+                                <file>target/cucumber.json</file>
+                            </jsonFiles>
+                            <outputDirectory>${project.build.directory}/cucumber-reports</outputDirectory>
+                            <projectName>Team148 Cucumber Project</projectName>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -99,6 +119,7 @@
                     </archive>
                 </configuration>
             </plugin>
+
 
             <!-- Cucumber HTML raporları üretmek için -->
             <plugin>
