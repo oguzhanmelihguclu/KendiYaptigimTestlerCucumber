@@ -1,3 +1,4 @@
+@wip
 Feature: Kullanici ilgili sitede arama kutusunda ürün aratır.
 
     Scenario: Kullanici gecerli bilgilerle ilgili siteye giris yapabilmeli.
