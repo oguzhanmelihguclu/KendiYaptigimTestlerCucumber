@@ -14,46 +14,27 @@
     </properties>
 
     <dependencies>
-        <!-- Gereken bağımlılıklar burada değişmeden kalacak -->
+        <!-- Selenium -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.27.0</version>
         </dependency>
+
+        <!-- Cucumber -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
             <version>7.20.1</version>
         </dependency>
-        <!-- Diğer bağımlılıklar aynı şekilde bırakılıyor -->
-    </dependencies>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit-platform-engine</artifactId>
+            <version>7.20.1</version>
+            <scope>test</scope>
+        </dependency>
 
-    <build>
-        <plugins>
-            <!-- Surefire Plugin için paralel çalıştırma eklendi -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M9</version>
-                <configuration>
-                    <forkCount>2</forkCount> <!-- Paralel çalıştırma için artırıldı -->
-                    <reuseForks>true</reuseForks>
-                    <argLine>-Duser.language=en -Xmx1024m -Dfile.encoding=UTF-8</argLine>
-                    <includes>
-                        <include>**/runners/*Runner*.java</include>
-                    </includes>
-                </configuration>
-            </plugin>
-
-            <!-- JAR üretimi aktif hale getirildi -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.4.1</version>
-                <configuration>
-                    <skip>false</skip> <!-- JAR üretimini etkinleştirdik -->
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-</project>
+        <!-- JUnit 5 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifact
